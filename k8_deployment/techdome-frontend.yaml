@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name:  techdome-frontend
-          image: murali90102/techdome-frontend:latest
+          image: murali90102/techdome-frontend
           imagePullPolicy: Always
           resources:
             requests:
