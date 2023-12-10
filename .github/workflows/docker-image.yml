@@ -14,7 +14,11 @@ jobs:
 
     steps:
     - name: Clean UP
-      run: docker rmi -f $(docker images | grep murali90102 | awk '{print $3}') && docker system prune -f
+      run: |
+        if [[ $(docker images | grep murali90102 | wc -l) -gt 0 ]];
+        then
+          docker rmi -f $(docker images | grep murali90102 | awk '{print $3}') && docker system prune -f
+        fi
 
     - uses: actions/checkout@v3
     - name: SonarQube Scan
