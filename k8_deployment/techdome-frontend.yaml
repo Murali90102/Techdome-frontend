@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: techdome-frontend
+  labels:
+    name: techdome-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: techdome-frontend
+  template:
+    metadata:
+      name: techdome-frontend
+      labels:
+        name: techdome-frontend
+    spec:
+      containers:
+        - name:  techdome-frontend
+          image: vigneshsweekaran/techdome-frontend:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: techdome-frontend
+  labels:
+    name: techdome-frontend
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 32011
+  selector:
+    name: techdome-frontend
+  type: NodePort
