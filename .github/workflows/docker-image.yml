@@ -24,7 +24,7 @@ jobs:
       with:
         # projectKey: "Techdome-frontend"
         args: >
-          -Dsonar.projectKey="Techdome-frontend"
+          -Dsonar.projectKey=Techdome-frontend
       
     # - uses: kitabisa/sonarqube-action@master
     #   with:
