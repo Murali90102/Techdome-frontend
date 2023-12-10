@@ -26,13 +26,6 @@ jobs:
         args: >
           -Dsonar.projectKey=Techdome-frontend
       
-    # - uses: kitabisa/sonarqube-action@master
-    #   with:
-    #     host: ${{ secrets.SONAR_HOST_URL }}
-    #     login: ${{ secrets.SONAR_TOKEN }}
-    #     #projectBaseDir: "src"
-    #     projectKey: "Techdome-frontend"
-      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag murali90102/techdome-frontend:$GITHUB_RUN_NUMBER
     - name: Docker login 
