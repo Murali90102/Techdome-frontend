@@ -42,8 +42,8 @@ jobs:
 
     # - name: Sleep
     #   run: sleep 600 
-    
+
   deployment:
     runs-on: self-hosted
-    - name: Deployments in K8s
-      run: kubectl --kubeconfig=config apply -f k8_deployment/techdome-frontend.yaml
+      - name: Deployments in K8s
+        run: kubectl --kubeconfig=config apply -f k8_deployment/techdome-frontend.yaml
