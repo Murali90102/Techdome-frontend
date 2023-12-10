@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Clean UP
-      run: docker rmi -f $(docker images -qa) && docker system prune -f
+      run: docker rmi -f $(docker images | grep murali90102 | awk '{print $3}') && docker system prune -f
 
     - uses: actions/checkout@v3
     - name: SonarQube Scan
@@ -33,7 +33,7 @@ jobs:
     - name: Docker push
       run: docker push murali90102/techdome-frontend:$GITHUB_RUN_NUMBER
     - name: Clean UP
-      run: docker rmi -f $(docker images -qa) && docker system prune -f
+      run: docker rmi -f $(docker images | grep murali90102 | awk '{print $3}') && docker system prune -f
     
 
   deployment:
