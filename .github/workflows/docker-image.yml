@@ -17,9 +17,9 @@ jobs:
     # - name: get env
     #   run: env
     - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag murali90102/techdome-frontend:$GITHUB_RUN_NUMBER
