@@ -40,7 +40,7 @@ jobs:
     - name: Generate config file
       run: echo "${{ secrets.KUBECTL_CONFIG }}" > config
 
-    -name: Sleep
+    - name: Sleep
       run: sleep 600 
 
     - name: Deployments in K8s
