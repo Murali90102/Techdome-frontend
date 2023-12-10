@@ -1,6 +1,0 @@
-projectKey=Techdome-frontend
-serverUrl=http://3.112.45.26:9000
-serverVersion=10.3.0.82913
-dashboardUrl=http://3.112.45.26:9000/dashboard?id=Techdome-frontend
-ceTaskId=AYxUOvwR68HYqN6MpoXl
-ceTaskUrl=http://3.112.45.26:9000/api/ce/task?id=AYxUOvwR68HYqN6MpoXl

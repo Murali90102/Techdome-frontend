@@ -33,11 +33,15 @@ jobs:
       run: docker push murali90102/techdome-frontend:$GITHUB_RUN_NUMBER
     - name: Picking the latest version of docker image
       run: sed -i "s/techdome-frontend:1/techdome-frontend:$GITHUB_RUN_NUMBER/1" k8_deployment/techdome-frontend.yaml
+    - name: See changed files
+      run: git status && ls -lrt k8_deployment/techdome-frontend.yaml && cat k8_deployment/techdome-frontend.yaml
     
+
     # https://github.com/marketplace/actions/git-auto-commit
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: Updating the Container Image Tag with the Build ID 
+        file_pattern: 'k8_deployment/techdome-frontend.yaml'
     
 
   deployment:
