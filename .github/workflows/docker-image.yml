@@ -50,7 +50,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Picking the latest version of docker image
-      run: sed -i "s/techdome-frontend:1/techdome-frontend:$GITHUB_RUN_NUMBER/1" deployment.yaml
+      run: sed -i "s/techdome-frontend:1/techdome-frontend:$GITHUB_RUN_NUMBER/1" k8_deployment/techdome-frontend.yaml
     - name: Generate config file
       run: echo "${{ secrets.KUBECTL_CONFIG }}" > config
     - name: Deployments in K8s
