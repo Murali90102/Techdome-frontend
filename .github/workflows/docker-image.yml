@@ -22,7 +22,9 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       with:
-        projectKey: "Techdome-frontend"
+        # projectKey: "Techdome-frontend"
+        args: >
+          -Dsonar.projectKey="Techdome-frontend"
       
     # - uses: kitabisa/sonarqube-action@master
     #   with:
