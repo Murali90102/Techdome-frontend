@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Scan_Build_Push_AutoCommit_Deploy
 
 on:
   push:
@@ -13,8 +13,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    # - name: Remove File
-    #   run: find ./ -iname .sonar_lock ; rm -rf Techdome-frontend/.scannerwork/.sonar_lock
     - uses: actions/checkout@v3
     - name: SonarQube Scan
       uses: sonarsource/sonarqube-scan-action@master
@@ -31,7 +29,7 @@ jobs:
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PWD }}
     - name: Docker push
       run: docker push murali90102/techdome-frontend:$GITHUB_RUN_NUMBER
-    - name: Picking the latest version of docker image
+    - name: Update Tag in techdome-frontend.yaml
       run: sed -i "s/techdome-frontend:1/techdome-frontend:$GITHUB_RUN_NUMBER/1" k8_deployment/techdome-frontend.yaml
     - name: See changed files
       run: git status && ls -lrt k8_deployment/techdome-frontend.yaml && cat k8_deployment/techdome-frontend.yaml
