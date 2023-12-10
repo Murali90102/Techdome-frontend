@@ -40,5 +40,8 @@ jobs:
     - name: Generate config file
       run: echo "${{ secrets.KUBECTL_CONFIG }}" > config
 
+    -name: Sleep
+      run: sleep 600 
+
     - name: Deployments in K8s
       run: kubectl --kubeconfig=config apply -f k8_deployment/techdome-frontend.yaml
